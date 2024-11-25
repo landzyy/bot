@@ -165,6 +165,7 @@ const bot = new Client({
 });
 bot.ev.once(Events.ClientReady, (m, ctx) => {
     console.log(`ready at ${m.user.id}`)
+    bot.core.sendMessage("6285640575421" + "@s.whatsapp.net", {text : "bot online!"})
 });
 bot.command({
     name: "e",
@@ -183,7 +184,7 @@ bot.command({
 bot.command("menu", async(ctx) => {
     ctx.reply(`Hello ${ctx._sender.pushName}!
 
-Server : ${global.apii}
+Server : _https://api.ndaadev.us.kg_
 Owner : _https://wa.me/6285640575421_
 
 _*General*_
