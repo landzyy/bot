@@ -4,7 +4,9 @@ import fetch from "node-fetch"
 import util from "util"
 import axios from "axios"
 import mime from "mime-types"
+import express from "express"
 
+const app = express()
 global.apii = `https://api.ndaadev.us.kg/api/`
 const erorr = "Server Sedang Sibuk Coba Lagi Nanti!"
 
@@ -233,7 +235,12 @@ bot.command("covid-19", async(ctx) => {
 })
 
 //AI
-
+bot.command("blackbox", async(ctx) => {
+    const text = ctx.args.join(" ") || null
+    if (text === null) return ctx.reply(`Masukan Pertanyaan`)
+    const res = await fetchJson(`${global.apii}blackbox?query=${text}`)
+    ctx.reply(`${res.result}`)
+})
 bot.command("gemini", async(ctx) => {
     const text = ctx.args.join(" ") || null
     if (text === null) return ctx.reply(`Masukan Pertanyaan`)
@@ -261,5 +268,7 @@ bot.command("luminai", async(ctx) => {
     }
 })
 
-
+app.listen(3000, () => {
+    console.log(`Server running on port 3000`)
+})
 bot.launch();
