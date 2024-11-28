@@ -27,6 +27,7 @@
     "express": "^4.21.1",
     "mime-type": "^5.0.0",
     "node-fetch": "^3.3.2",
+    "exec": "latest",
     "util": "^0.12.5"
   }
 }
